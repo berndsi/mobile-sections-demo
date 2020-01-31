@@ -19,7 +19,7 @@
       alt="Wikipedia"
     />
   </div>
-  <div class="search-box">
+  <form on:submit|preventDefault="{loadPage}">
     <input
       id="searchInput"
       class="search"
@@ -29,10 +29,10 @@
       placeholder="Enter Wikipedia page title"
       aria-label="Wikipedia page title"
     />
-  </div>
-  <button class="loadButton" aria-label="Load page" on:click="{loadPage}">
-    Load
-  </button>
+    <button class="loadButton" aria-label="Load page" type="submit">
+      Load
+    </button>
+  </form>
 </header>
 
 <style>
