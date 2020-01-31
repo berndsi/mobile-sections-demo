@@ -1,8 +1,12 @@
 <script>
   import Header from './Header.svelte';
+
+  function loadPage(event) {
+    alert(event.detail.title);
+  }
 </script>
 
-<Header/>
+<Header on:loadPage={loadPage}/>
 <main></main>
 
 <style>

@@ -1,3 +1,16 @@
+<script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+  let title;
+
+  function loadPage() {
+    if (title) {
+      dispatch("loadPage", { title });
+    }
+  }
+</script>
+
 <header>
   <div class="branding-box">
     <img
@@ -11,12 +24,15 @@
       id="searchInput"
       class="search"
       name="search"
+      bind:value="{title}"
       autocomplete="off"
       placeholder="Enter Wikipedia page title"
       aria-label="Wikipedia page title"
     />
   </div>
-  <button class="loadButton">Load</button>
+  <button class="loadButton" aria-label="Load page" on:click="{loadPage}">
+    Load
+  </button>
 </header>
 
 <style>
