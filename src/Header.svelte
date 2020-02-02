@@ -26,8 +26,8 @@
       name="search"
       bind:value="{title}"
       autocomplete="off"
-      placeholder="Enter Wikipedia page title"
-      aria-label="Wikipedia page title"
+      placeholder="Enter page title"
+      aria-label="Enter page title"
     />
     <button class="loadButton" aria-label="Load page" type="submit">
       Load
