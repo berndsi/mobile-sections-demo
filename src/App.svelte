@@ -1,42 +1,22 @@
+<Header on:loadPage="{loadPageEvent}"></Header>
+{#if title}
+<Page {title}></Page>
+{/if}
+
 <script>
   import { onMount } from "svelte";
   import Header from "./Header.svelte";
+  import Page from "./Page.svelte";
 
-  let lead = "";
-
-  function loadLead(title) {
-    console.log(`Loading lead for ${title}...`);
-    const url = `https://en.wikipedia.org/api/rest_v1/page/mobile-sections-lead/${title}`;
-    console.log(`url: ${url}`);
-    fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then(json => {
-        lead = json;
-      })
-      .catch(err => {
-        console.warn("Something went wrong.", err);
-      });
-  }
-
-  function loadPage(title) {
-    loadLead(title);
-  }
+  let title;
 
   function loadPageEvent(event) {
-    loadPage(event.detail.title);
+    title = event.detail.title;
   }
 
   onMount(async () => {
-    loadPage("Main_Page");
+    title = "Main_Page";
   });
 </script>
-
-<Header on:loadPage="{loadPageEvent}"></Header>
-<header>
-  <h1>{lead.displaytitle}</h1>
-</header>
-<main></main>
 
 <style></style>
