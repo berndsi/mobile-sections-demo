@@ -20,8 +20,6 @@
   />
 </svelte:head>
 
-<svelte:body id="content" class="content" />
-
 {#await loadLead(title)}
 <p>waiting for {title} to be loaded...</p>
 {:then lead}
@@ -39,7 +37,9 @@
     </span>
   </div>
 </header>
-<section data-mw-section-id="0">{@html lead.sections[0].text}</section>
+<div id="content" class="content">
+  <section data-mw-section-id="0">{@html lead.sections[0].text}</section>
+</div>
 {/await}
 
 <script>
