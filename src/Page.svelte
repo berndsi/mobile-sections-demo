@@ -1,10 +1,28 @@
+<svelte:head>
+  <meta charset="utf-8">
+  <base href="//en.wikipedia.org/wiki/">
+  <meta http-equiv="content-language" content="en">
+  <link rel="stylesheet" href="//meta.wikimedia.org/api/rest_v1/data/css/mobile/base">
+  <link rel="stylesheet" href="//en.wikipedia.org/api/rest_v1/data/css/mobile/site">
+  <link rel="stylesheet" href="//meta.wikimedia.org/api/rest_v1/data/css/mobile/pagelib">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no">
+</svelte:head>
+
+<svelte:body id="content" class="content"/>
+
 {#await loadLead(title)}
 <p>waiting for {title} to be loaded...</p>
 {:then lead}
 <header>
-  <h1>{lead.displaytitle}</h1>
+  <div class="pcs-edit-section-header">
+    <h1 data-id="0" class="pcs-edit-section-title">{lead.displaytitle}</h1>
+    <span class="pcs-edit-section-link-container">
+      <a href="/w/index.php?title=A&amp;action=edit&amp;section=0" data-id="0" data-action="edit_section"
+        class="pcs-edit-section-link"></a>
+      </span>
+  </div>
 </header>
-<main>{@html lead.sections[0].text}</main>
+<section data-mw-section-id="0">{@html lead.sections[0].text}</section>
 {/await}
 
 <script>
