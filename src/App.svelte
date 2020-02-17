@@ -16,6 +16,7 @@
 
   onMount(async () => {
     title = "Main_Page";
+    // title = "A";
   });
 </script>
 

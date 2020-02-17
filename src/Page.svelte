@@ -42,27 +42,36 @@
   </header>
   <main id="content">
     <section data-mw-section-id="0">{@html lead.sections[0].text}</section>
+    {#await loadRemaining(title)}
+    {:then remaining} 
+    {#each remaining.sections as section}
+    <Section section="{section}" />
+    {/each}
+    {/await}
   </main>
 </div>
 {/await}
 
 <script>
+  import Section from "./Section.svelte";
+
   export let title;
 
   let lead = "";
 
+  async function loadJson(uri) {
+    let response = await fetch(uri);
+    return await response.json();
+  }
+
   async function loadLead(title) {
-    console.log(`Loading lead for ${title}...`);
     const url = `https://en.wikipedia.org/api/rest_v1/page/mobile-sections-lead/${title}`;
-    console.log(`url: ${url}`);
-    return fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then(json => {
-        lead = json;
-        return json;
-      });
+    return await loadJson(url);
+  }
+
+  async function loadRemaining(title) {
+    const url = `https://en.wikipedia.org/api/rest_v1/page/mobile-sections-remaining/${title}`;
+    return await loadJson(url);
   }
 
   async function loadPage(title) {
