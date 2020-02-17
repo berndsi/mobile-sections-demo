@@ -21,24 +21,28 @@
 </svelte:head>
 
 {#await loadLead(title)}
-<p>waiting for {title} to be loaded...</p>
+<p>Loading {title}...</p>
 {:then lead}
-<header>
-  <div class="pcs-edit-section-header">
-    <h1 data-id="0" class="pcs-edit-section-title">{lead.displaytitle}</h1>
-    <span class="pcs-edit-section-link-container">
-      <a
-        href="/w/index.php?title=A&amp;action=edit&amp;section=0"
-        data-id="0"
-        data-action="edit_section"
-        class="pcs-edit-section-link"
-      >
-      </a>
-    </span>
-  </div>
-</header>
-<div id="content" class="content">
-  <section data-mw-section-id="0">{@html lead.sections[0].text}</section>
+<div
+  class="content mw-content mw-content-ltr sitedir-ltr ltr mw-body-content parsoid-body mediawiki mw-parser-output"
+>
+  <header>
+    <div class="pcs-edit-section-header">
+      <h1 data-id="0" class="pcs-edit-section-title">{lead.displaytitle}</h1>
+      <span class="pcs-edit-section-link-container">
+        <a
+          href="/w/index.php?title=A&amp;action=edit&amp;section=0"
+          data-id="0"
+          data-action="edit_section"
+          class="pcs-edit-section-link"
+        >
+        </a>
+      </span>
+    </div>
+  </header>
+  <main id="content">
+    <section data-mw-section-id="0">{@html lead.sections[0].text}</section>
+  </main>
 </div>
 {/await}
 
