@@ -1,14 +1,14 @@
 <svelte:head>
   <meta charset="utf-8" />
-  <base href="//${lang}.wikipedia.org/wiki/" />
-  <meta http-equiv="content-language" content="${lang}" />
+  <base href="//{lang}.wikipedia.org/wiki/" />
+  <meta http-equiv="content-language" content="{lang}" />
   <link
     rel="stylesheet"
     href="//meta.wikimedia.org/api/rest_v1/data/css/mobile/base"
   />
   <link
     rel="stylesheet"
-    href="//${lang}.wikipedia.org/api/rest_v1/data/css/mobile/site"
+    href="//{lang}.wikipedia.org/api/rest_v1/data/css/mobile/site"
   />
   <link
     rel="stylesheet"
