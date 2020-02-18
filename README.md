@@ -1,12 +1,20 @@
 # `mobile-sections` demo
 
 A pageload demo using the `mobile-sections-*` endpoints of (English) Wikipedia pages.
-A page title and revision can be specified in the path of the URL.
+The Wikipedia language, a page title and revision can be specified in the path of the URL.
+
+## Hosted examples
+
+Navigate to [https://mobile-sections-demo.netlify.com/](https://mobile-sections-demo.netlify.com/). You should see the English Wikipedia Main Page.
+
+Navigate to [https://mobile-sections-demo.netlify.com/en/Cat](https://mobile-sections-demo.netlify.com/en/Cat). You should see the English Wikipedia page Cat.
+
+Navigate to [https://mobile-sections-demo.netlify.com/en/Cat/941307127](https://mobile-sections-demo.netlify.com/en/Cat/941307127). You should see revision 941307127 of the English Wikipedia page Cat.
+
+## Run locally
 
 _Note that you will need to have [Node.js](https://nodejs.org) installed._
 This demo app is written in [Svelte](https://svelte.dev/).
-
-## Get started
 
 Install the dependencies...
 
