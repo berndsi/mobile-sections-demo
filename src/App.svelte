@@ -1,11 +1,9 @@
-<Header on:loadPage="{loadPageEvent}"></Header>
 {#if title}
 <Page {title}></Page>
 {/if}
 
 <script>
   import { onMount } from "svelte";
-  import Header from "./Header.svelte";
   import Page from "./Page.svelte";
 
   let title;
@@ -15,8 +13,13 @@
   }
 
   onMount(async () => {
-    title = "Main_Page";
-    // title = "A";
+    console.log(window.location.pathname);
+    if (window.location.pathname === "/") {
+      title = "Main_Page";
+      // title = "A";
+    } else {
+      title = window.location.pathname.substring(1);
+    }
   });
 </script>
 
