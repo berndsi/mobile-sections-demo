@@ -1,62 +1,45 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# `mobile-sections` demo
 
----
+A pageload demo using the `mobile-sections-*` endpoints of (English) Wikipedia pages.
+A page title and revision can be specified in the path of the URL.
 
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+_Note that you will need to have [Node.js](https://nodejs.org) installed._
+This demo app is written in [Svelte](https://svelte.dev/).
 
 ## Get started
 
 Install the dependencies...
 
 ```bash
-cd svelte-app
+cd mobile-sections-demo
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+...then start the dev server:
 
 ```bash
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
 By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
 
+## Examples
+
+Navigate to [localhost:5000](http://localhost:5000). You should see the English Wikipedia Main Page.
+
+Navigate to [localhost:5000/Cat](http://localhost:5000/Cat). You should see the English Wikipedia page Cat.
+
+Navigate to [localhost:5000/Cat/941307127](http://localhost:5000/Cat/941307127). You should see revision 941307127 of the English Wikipedia page Cat.
 
 ## Building and running in production mode
 
-To create an optimised version of the app:
+To create an optimized version of the app:
 
 ```bash
 npm run build
 ```
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
 
 ## Deploying to the web
 
