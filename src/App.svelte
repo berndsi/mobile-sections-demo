@@ -15,14 +15,13 @@
   }
 
   onMount(async () => {
-    if (window.location.pathname === "/") {
-      rev = undefined;
-    } else {
-      const parts = window.location.pathname.split("/");
-      lang = parts[1];
-      title = parts[2];
-      rev = parts[3];
-    }
+    rev = undefined;
+
+    const parts = window.location.pathname.split("/");
+    lang = parts[1];
+    title = parts[2];
+    rev = parts[3];
+
     if (!title) {
       title = "Main_Page";
       // title = "A";
