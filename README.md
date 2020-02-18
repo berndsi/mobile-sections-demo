@@ -27,9 +27,9 @@ By default, the server will only respond to requests from localhost. To allow co
 
 Navigate to [localhost:5000](http://localhost:5000). You should see the English Wikipedia Main Page.
 
-Navigate to [localhost:5000/Cat](http://localhost:5000/Cat). You should see the English Wikipedia page Cat.
+Navigate to [localhost:5000/en/Cat](http://localhost:5000/en/Cat). You should see the English Wikipedia page Cat.
 
-Navigate to [localhost:5000/Cat/941307127](http://localhost:5000/Cat/941307127). You should see revision 941307127 of the English Wikipedia page Cat.
+Navigate to [localhost:5000/en/Cat/941307127](http://localhost:5000/en/Cat/941307127). You should see revision 941307127 of the English Wikipedia page Cat.
 
 ## Building and running in production mode
 

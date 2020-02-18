@@ -1,14 +1,14 @@
 <svelte:head>
   <meta charset="utf-8" />
-  <base href="//en.wikipedia.org/wiki/" />
-  <meta http-equiv="content-language" content="en" />
+  <base href="//${lang}.wikipedia.org/wiki/" />
+  <meta http-equiv="content-language" content="${lang}" />
   <link
     rel="stylesheet"
     href="//meta.wikimedia.org/api/rest_v1/data/css/mobile/base"
   />
   <link
     rel="stylesheet"
-    href="//en.wikipedia.org/api/rest_v1/data/css/mobile/site"
+    href="//${lang}.wikipedia.org/api/rest_v1/data/css/mobile/site"
   />
   <link
     rel="stylesheet"
@@ -20,7 +20,7 @@
   />
 </svelte:head>
 
-{#await loadLead(title)}
+{#await loadLead()}
 <p>Loading {title}...</p>
 {:then lead}
 <div
@@ -42,7 +42,7 @@
   </header>
   <main id="content">
     <section data-mw-section-id="0">{@html lead.sections[0].text}</section>
-    {#await loadRemaining(title)}
+    {#await loadRemaining()}
     {:then remaining} 
     {#each remaining.sections as section}
     <Section section="{section}" />
@@ -55,27 +55,27 @@
 <script>
   import Section from "./Section.svelte";
 
+  export let lang = 'en';
   export let title;
+  export let rev;
 
-  let lead = "";
+  let titleRev = rev ? `${title}/${rev}` : title;
+
+  function buildUrl(endpoint) {
+    return `https://${lang}.wikipedia.org/api/rest_v1/page/${endpoint}/${titleRev}`;
+  }
 
   async function loadJson(uri) {
     let response = await fetch(uri);
     return await response.json();
   }
 
-  async function loadLead(title) {
-    const url = `https://en.wikipedia.org/api/rest_v1/page/mobile-sections-lead/${title}`;
-    return await loadJson(url);
+  async function loadLead() {
+    return await loadJson(buildUrl('mobile-sections-lead'));
   }
 
-  async function loadRemaining(title) {
-    const url = `https://en.wikipedia.org/api/rest_v1/page/mobile-sections-remaining/${title}`;
-    return await loadJson(url);
-  }
-
-  async function loadPage(title) {
-    loadLead(title);
+  async function loadRemaining() {
+    return await loadJson(buildUrl('mobile-sections-remaining'));
   }
 </script>
 
