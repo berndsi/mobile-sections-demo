@@ -3,6 +3,8 @@
 A pageload demo using the `mobile-sections-*` endpoints of (English) Wikipedia pages.
 The Wikipedia language, a page title and revision can be specified in the path of the URL.
 
+_Note It doesn't run any client-side transformations.
+
 ## Hosted examples
 
 Navigate to [https://mobile-sections-demo.netlify.com/](https://mobile-sections-demo.netlify.com/). You should see the English Wikipedia Main Page.
